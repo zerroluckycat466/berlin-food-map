@@ -11,7 +11,9 @@ app.use(bodyParser.json());
 // MongoDB connection
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/berlin_food_map';
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
+  .then(() => {
+    console.log('MongoDB connected');
+  })
   .catch(err => console.log(err));
 
 // API routes
