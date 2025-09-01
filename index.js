@@ -16,8 +16,12 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // API routes
 app.get('/api/restaurants', (req, res) => {
-  // Logic to retrieve restaurants should be here
-  res.json({ message: 'List of restaurants' });
+  try {
+    // Logic to retrieve restaurants should be here
+    res.json({ message: 'List of restaurants' });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 // Start server
